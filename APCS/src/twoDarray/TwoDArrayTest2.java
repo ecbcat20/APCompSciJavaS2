@@ -1,12 +1,12 @@
-package recursion;
+package twoDarray;
 
-public class Recursion1 {
+public class TwoDArrayTest2 {
 
 	public static void main(String[] args) {
-		int toUse[][] = new int[5][3];
+		int toUse[][] = new int[10][10];
 		toUse[2][1] = 5;
 
-		// initialize from 1 to 15
+		// initialize from 1 to 99
 		int count = 0;
 		for (int row = 0; row < toUse.length; row++) {
 			for (int col = 0; col < toUse[0].length; col++) {
@@ -16,21 +16,32 @@ public class Recursion1 {
 			System.out.println();
 		}
 
-		// only output the second row
-		for (int col = 0; col < toUse[1].length; col++) {
-			System.out.print(toUse[1][col] + " ");
+		display(toUse);
+
+		// print first diagonal
+
+		for (int row = 0; row < toUse.length; row++) {
+			for (int col = 0; col < toUse[0].length; col++) {
+				if (row == col) {
+					System.out.print(toUse[row][col] + " ");
+				}
+			}
 		}
 
-		// output third column
-		for (int row = 0; row < toUse.length; row++) {
-			System.out.println(toUse[row][2]);
+		System.out.println();
+		// print second diagonal
 
+		for (int row = toUse[0].length; row >= 0; row--) {
+			for (int col = 0; col < toUse.length; col++) {
+				if(row == col) {
+					System.out.print(toUse[row][col] + " ");
+				}
+			}
 		}
 
 		// a.length; gives rows
 		// a[0].length; gives columns
 
-		display(toUse);
 	}
 
 	public static void display(int[][] a) {
